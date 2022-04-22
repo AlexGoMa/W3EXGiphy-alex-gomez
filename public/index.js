@@ -11,17 +11,11 @@ const getRandomGif = async (tag) => {
     const randomGifData = await response.json();
     return randomGifData;
 };
-/*
-(async () => {
-    console.log(await getRandomGif("gatitos"));
-})();
-*/
+
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const text = search.value;
     const gifData = await getRandomGif(text);
     const gifUrl = gifData.data.images.original.url;
     image.src = gifUrl;
-
-    console.log(gifUrl);
 });
